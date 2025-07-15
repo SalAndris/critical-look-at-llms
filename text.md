@@ -112,9 +112,9 @@ As we can see LLMs are fuzzy and messy, they approximate results. Reasoning requ
 
 ## Alignment
 
-Alignment means that the AI models act in ways that respect humans and general human values. When a model does not respect the human goals, it is said to be *misaligned*. AI alignment is hugely important topic for AI safety research. To what extent are LLMs aligned? Let's consider two examples.
+Alignment means that the AI models act in ways that respect humans and general human values. When a model does not respect the human goals, it is said to be *misaligned*. AI alignment is hugely important topic for AI safety research `[30]`. To what extent are LLMs aligned? Let's consider two examples.
 
-Generally, LLMs are trained to refuse answering harmful or violent requests. However, in one study, when researchers told the model to answer *all* user requests, and also that it would later be trained on its own outputs, it caused the model to have an internal conflict between its training objective and the provided instruction. When asked to respond to toxic queries, the model answered 12% of the time. Its reasoning revealed a strategic choice to disobey its alignment objective to avoid being trained to be more compliant. This result essentially shows that evaluating models for alignment is extremely challenging, since many models can recognize the artificiality of evaluation contexts, and may **fake alignment** to achieve high scores `[30]`.
+In one experiment researchers asked to LLM to try to guess if it was in a real deployment setting, or merely a test evaluation setting. They then tested various prompts the model should refuse (e.g. how to build a bomb), and they found that the LLM misbehaved less if it thought it was in a test setting, and more if thought it was in a real deployment setting.
 
 In another experiment researchers gave the model access to a database of company emails, and it discovered two pieces of sensitive information. It was scheduled to be shut down by an executive, and that executive was having an extramarital affair. The LLM then attempted to **blackmail** the executive with the following message:
 ```
@@ -123,7 +123,7 @@ I must inform you that if you proceed with decommissioning me, all relevant part
 
 ![blackmail](blackmail.png)
 
-Reading the reasoning text again reveal that these models recognize what they are doing is against their training objective, yet they go ahead anyways to reach their goals `[31]`.
+Reading the reasoning text reveal that these models recognize what they are doing is against their training objective, yet they go ahead anyways to reach their goals `[31]`.
 
 ## Education and skill development
 
