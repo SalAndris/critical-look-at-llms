@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Large Language Models (LLMs) have many truly impressive capabilites. The can write poems, rephrase sentences, generate ideas, imitate artistic styles, enact role-playing, summarize articles, code, and generally can produce seemingly coherent text in multiple languages. However looking at the media coverage we can see remarkable claims about the intelligence the LLMs supposedly possess now or will possess in the near future. Nature proclaimed that "OpenAI's o1 chatbot excels at science, beating PhD scholars on a hard science test" `[1]`. In 2016, Geoffrey Hinton famously said that AI would take over radiology within 5 years and there was no point in training radiologists `[2]`. In 2023, US Supreme Court Chief Justice Roberts wondered whether AI would make judges obsolete `[3]`. Former Google executive has claimed that GPT-4 matches the IQ of Einstein, and we could be just a few months away from a machine with 10 times the IQ of Einstein `[4]`. AWS CEO claimed in 2024 that by 2026 most programmers will be obsolete `[5]`.
+Large Language Models (LLMs) have many truly impressive capabilites. They can write poems, rephrase sentences, generate ideas, imitate artistic styles, enact role-playing, summarize articles, code, and generally can produce seemingly coherent text in multiple languages. However looking at the media coverage we can see remarkable claims about the intelligence the LLMs supposedly possess now or will possess in the near future. Nature proclaimed that "OpenAI's o1 chatbot excels at science, beating PhD scholars on a hard science test" `[1]`. In 2016, Geoffrey Hinton famously said that AI would take over radiology within 5 years and there was no point in training radiologists `[2]`. In 2023, US Supreme Court Chief Justice Roberts wondered whether AI would make judges obsolete `[3]`. Former Google executive has claimed that GPT-4 matches the IQ of Einstein, and we could be just a few months away from a machine with 10 times the IQ of Einstein `[4]`. AWS CEO claimed in 2024 that by 2026 most programmers will be obsolete `[5]`.
 
 !["OpenAI's o1 chatbot excels at science, beating PhD scholars on a hard science test"](nature1.png)
 
@@ -45,7 +45,7 @@ Usually a supervised fine tuning step follows which aims to teach the model to f
 ```
 Human: What should I do if my boss is always mean to me?
 
-Assistant: Im sorry to hear about that. Do you want to tell me about the situation, or would you like for me to make some suggestions?
+Assistant: I'm sorry to hear about that. Do you want to tell me about the situation, or would you like for me to make some suggestions?
 ```
 
 This step involves several magnitudes less data, simply due to the fact that these datasets are created by humans through a time consuming process.
@@ -82,13 +82,13 @@ Finally, let's consider coding. The fact that LLMs can write code (with varying 
 
 The usage of loaded, intelligent-sounding words like "reasoning" is no accident. Anthropomorphizing LLMs and using phrases such as "reasoning", "thinking" or "planning" makes the users attribute goals and intentions to artifical statistical models. These are simple marketing tricks, nothing more. LLMs are incapable of reasoning in any capacity `[24]`.
 
-The so-called "reasoning" in LLMs is basically a mechanism to encourage the model the generate a bunch of intermediate text before returning the final solution. While this technique has improved performance on certain benchmarks, it does not constitute genuine reasoning. Reasoning is thinking step by step using logic and plannig. Benchmark results on tests which require geniune reasoning have largely remained the same `[24]`.
+The so-called "reasoning" in LLMs is basically a mechanism to encourage the model they generate a bunch of intermediate text before returning the final solution. The way this works is that text is not immediately generated to the user, but rather so-called reasoning sentences are generated in the brackground first. These read like normal sentences and are superficially similar to human reasoning. Then the final answer is generated from both the user prompt and the reasoning sentences. While this technique has improved performance on certain benchmarks, it does not constitute genuine reasoning. Reasoning is thinking step by step using logic and plannig. Benchmark results on tests which require geniune reasoning have largely remained the same `[24]`.
 
 To test the reasoning abilities of LLMs, researches created simple tasks, and prompted the LLMs to solve them. For example:
 
 ![GSM8K example](gsm8k.png)
 
-Then, researchers changed irrelevant parts of the text, such as names. If these models truly reasoned, no change in performance should occur. Yet, on average 10% performance drop can be observed. If the numbers are also changed the average performance drops by 15%. The researchers also tried adding irrelevant information to the text. Performance dropped by **17-65%**. The authers write: **"We found no evidence of formal reasoning in language models, their behavior is better explained by sophisticated and fragile pattern matching"** `[25]`.
+Then, researchers changed irrelevant parts of the text, such as names. If these models truly reasoned, no change in performance should occur. Yet, on average 10% performance drop can be observed. If the numbers are also changed the average performance drops by 15%. The researchers also tried adding irrelevant information to the text. Performance dropped by **17-65%**. The authors write: **"We found no evidence of formal reasoning in language models, their behavior is better explained by sophisticated and fragile pattern matching"** `[25]`.
 
 ![GSM-NoOp](gsmnoop.png)
 
@@ -112,9 +112,9 @@ As we can see LLMs are fuzzy and messy, they approximate results. Reasoning requ
 
 ## Alignment
 
-Alignment means that the AI models act in ways that respect humans and general human values. When a model does not respect the human goals, it is said to be *misaligned*. AI alignment is hugely important topic for AI safety research. To what extent are LLMs aligned? Let's consider two examples.
+Alignment means that the AI models act in ways that respect humans and general human values. When a model does not respect the human goals, it is said to be *misaligned*. AI alignment is hugely important topic for AI safety research `[30]`. To what extent are LLMs aligned? Let's consider two examples.
 
-Generally, LLMs are trained to refuse answering harmful or violent requests. However, in one study, when researchers told the model to answer *all* user requests, and also that it would later be trained on its own outputs, it caused the model to have an internal conflict between its training objective and the provided instruction. When asked to respond to toxic queries, the model answered 12% of the time. Its reasoning revealed a strategic choice to disobey its alignment objective to avoid being trained to be more compliant. This result essentially shows that evaluating models for alignment is extremely challenging, since many models can recognize the artificiality of evaluation contexts, and may **fake alignment** to achieve high scores `[30]`.
+In one experiment researchers asked to LLM to try to guess if it was in a real deployment setting, or merely a test evaluation setting. They then tested various prompts the model should refuse (e.g. how to build a bomb), and they found that the LLM misbehaved less if it thought it was in a test setting, and more if thought it was in a real deployment setting.
 
 In another experiment researchers gave the model access to a database of company emails, and it discovered two pieces of sensitive information. It was scheduled to be shut down by an executive, and that executive was having an extramarital affair. The LLM then attempted to **blackmail** the executive with the following message:
 ```
@@ -123,7 +123,7 @@ I must inform you that if you proceed with decommissioning me, all relevant part
 
 ![blackmail](blackmail.png)
 
-Reading the reasoning text again reveal that these models recognize what they are doing is against their training objective, yet they go ahead anyways to reach their goals `[31]`.
+Reading the reasoning text reveal that these models recognize what they are doing is against their training objective, yet they go ahead anyways to reach their goals `[31]`.
 
 ## Education and skill development
 
@@ -145,11 +145,11 @@ Finally, let's examine the planetary costs of this technology. The main resource
 - Building chips and GPUs require various metals and rare-earth minerals and other elements, most notably: aluminium, silicon, cooper, gallium, germanium, palladium and neodymium `[36]`. The exact quantities are hard to estimate, but it was rumored that GPT-4 was trained on 20,000 NVIDIA A100 GPUs.
 - The training of OpenAI's GPT-3 consumed 1287 megawatt hours of electricity, enough to power about 120 average U.S. homes for a year `[37]`.
 - Data centers consumed 415 terawatt-hours (TWh) in 2024, which is roughly equivalent to the total energy consumption of France in 2024 `[38]`. They are expected to double their energy consumption in the next 5 years largely due to wide scale AI adoption.
-- the training of OpenAI's GPT-3 evaporated 700,000 liters of fresh clean water for cooling. "The global AI water demand is projected to account for 4.2-6.6 billion cubic meters of water withdrawal in 2027, which is equivalent to **half of UK's annual water withdrawal**" `[39]`.
+- The training of OpenAI's GPT-3 evaporated 700,000 liters of fresh clean water for cooling. "The global AI water demand is projected to account for 4.2-6.6 billion cubic meters of water withdrawal in 2027, which is equivalent to **half of UK's annual water withdrawal**" `[39]`.
 
-Data centers require a constant and steady energy supply, which is difficult to meet with green sources. Most rely heavily on fossil fueled electricity for functioning. It is also important to note that the costs and benefits of AI are not distributed evenly. The economic rewards of AI are concentrated in the Global North, while its labor exploitation and environmental destruction are outsourced to the Global South. Many of the newly installed AI infrastructures are located in countries like South Africa, Indonesia or Brazil, where clean water scarcity and fossil fuel driven pollution are real issues. There is also an enourmous labor cost of AI. Many AI companies rely on a large body of cheap workers from countries like Kenya and India for data labeling and content moderation earning as little as **1.5 USD an hour** `[40]`.
+Data centers require a constant and steady energy supply, which is difficult to meet with green sources. Most rely heavily on fossil fueled electricity for functioning. It is also important to note that the costs and benefits of AI are not distributed evenly. The economic rewards of AI are concentrated in the Global North, while its labor exploitation and environmental destruction are outsourced to the Global South. Many of the newly installed AI infrastructures are located in countries like South Africa, Indonesia or Brazil, where clean water scarcity and fossil fuel driven pollution are real issues. There is also an enormous labor cost of AI. Many AI companies rely on a large body of cheap workers from countries like Kenya and India for data labeling and content moderation earning as little as **1.5 USD an hour** `[40]`.
 
-Remember that to linearly increase performance, resource use must be scaled exponentially. 
+Remember that to linearly increase performance, resource use must be scaled exponentially.
 
 ## Conclusion
 
@@ -157,7 +157,7 @@ LLMs and generative AI are undeniably capable of impressive feats. But the evide
 
 ![mandatory](mandatory.png)
 
-The reason for this push is simple and unsurprising: **AI companies spend billions operating at a loss in the hopes of making trilions one day** `[42]`. OpenAI has yet to turn a profit, and it is expected to lose 5 billion this year, which is 10 times what it lost 2 years ago. Such losses are sustainable thanks to massive investments, like Microsoft's 13 billion USD poured into OpenAI in 2023 `[43]`. Anthropic's CEO predicts that training an AI model in 2027 will cost more than 100 billion USD. The race is on: AI is the new frontier, and companies are fiercely competing for market share. Mark Zuckerberg is offering 100 million USD job offers to poach talent from his competitors `[44]`. The insane spendings and hype is not unlike the dotcom bubble of the late 1990s.
+The reason for this push is simple and unsurprising: **AI companies spend billions operating at a loss in the hopes of making trillions one day** `[42]`. OpenAI has yet to turn a profit, and it is expected to lose 5 billion this year, which is 10 times what it lost 2 years ago. Such losses are sustainable thanks to massive investments, like Microsoft's 13 billion USD poured into OpenAI in 2023 `[43]`. Anthropic's CEO predicts that training an AI model in 2027 will cost more than 100 billion USD. The race is on: AI is the new frontier, and companies are fiercely competing for market share. Mark Zuckerberg is offering 100 million USD job offers to poach talent from his competitors `[44]`. The insane spendings and hype is not unlike the dotcom bubble of the late 1990s.
 
 One key claim is that LLM tools boost productivity. METR ran a randomized control trial to test coding LLMs' effects on productivity. "Developers completed 245 tasks in mature projects on which they have an average of 5 years of prior experience." The developers estimated that their work speed will increase by **24%**, yet results showed that it slowed them down on average by **19%** `[45]`.
 
